@@ -13,7 +13,7 @@ import {
 } from "native-base";
 import { firstFromTime } from "uuid-js";
 
-export default class SignIn extends React.Component {
+export default class App extends React.Component {
   state = {
     email: "",
     password: "",
