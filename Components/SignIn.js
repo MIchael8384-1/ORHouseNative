@@ -1,6 +1,6 @@
 import React from "react";
 import { StyleSheet, Text, View, KeyboardAvoidingView } from "react-native";
-import fire from "./fire";
+// import fire from "./fire";
 // import firebase from "react-native-firebase";
 
 import {
