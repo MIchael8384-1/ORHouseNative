@@ -1,5 +1,7 @@
 import React from "react";
 import { StyleSheet, Text, View, KeyboardAvoidingView } from "react-native";
+import fire from "./fire";
+// import firebase from "react-native-firebase";
 
 import {
   Container,
@@ -11,31 +13,28 @@ import {
   Button,
   Label
 } from "native-base";
-import { firstFromTime } from "uuid-js";
 
 export default class SignIn extends React.Component {
   state = {
     email: "",
     password: "",
-    userName: ""
+    userName: "",
+    errorMessage: null
   };
 
   // signUpUser = (email, password) => {};
 
-  loginUser = (email, password) => {
-    try {
-      fire
-        .auth()
-        .signInWithEmailAndPassword(email, password)
-        .then(function(user) {
-          console.log(user);
-        });
-    } catch (error) {
-      console.log(error.toString());
-    }
-  };
+  // handleLogin = () => {
+  //   const { email, password } = this.state;
+  //   fire
+  //     .auth()
+  //     .signInWithEmailAndPassword(email, password)
+  //     .then(() => this.props.navigation.navigate("LandingPage"))
+  //     .catch(error => this.setState({ errorMessage: error.message }));
+  // };
 
   render() {
+    console.log(this.state.email);
     return (
       <KeyboardAvoidingView behavior="padding" style={styles.container}>
         <Container style={styles.container}>
@@ -46,6 +45,7 @@ export default class SignIn extends React.Component {
                 autoCorrect={false}
                 autoCapitalize="none"
                 onChangeText={email => this.setState({ email })}
+                value={this.state.email}
               />
             </Item>
             <Item floatingLabel>
@@ -54,6 +54,7 @@ export default class SignIn extends React.Component {
                 autoCorrect={false}
                 autoCapitalize="none"
                 onChangeText={userName => this.setState({ userName })}
+                value={this.state.userName}
               />
             </Item>
             <Item floatingLabel>
@@ -63,20 +64,21 @@ export default class SignIn extends React.Component {
                 autoCorrect={false}
                 autoCapitalize="none"
                 onChangeText={password => this.setState({ password })}
+                value={this.state.password}
               />
             </Item>
             <Button
+              title="Login"
               style={{ margin: 10 }}
               full
               rounded
               success
-              onPress={() => {
-                this.state.email, this.state.password;
-              }}
+              onPress={this.handleLogin}
             >
               <Text style={{ color: "white" }}>Login</Text>
             </Button>
-            <Button
+
+            {/* <Button
               style={{ margin: 10 }}
               full
               rounded
@@ -86,7 +88,7 @@ export default class SignIn extends React.Component {
               // }
             >
               <Text style={{ color: "white" }}>Sign Up</Text>
-            </Button>
+            </Button> */}
           </Form>
         </Container>
       </KeyboardAvoidingView>

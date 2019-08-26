@@ -4,7 +4,7 @@ import {
   Text,
   View,
   Image,
-  TouchableHighlight,
+  TouchableOpacity,
   Button
 } from "react-native";
 
