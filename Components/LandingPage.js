@@ -19,12 +19,6 @@ export default class LandingPage extends React.Component {
             <Image style={styles.logo} source={require("./images/logo1.png")} />
           </TouchableOpacity>
         </View>
-        <View>
-          <Button
-            title="Press Here"
-            onPress={() => this.props.navigation.navigate("SignIn")}
-          />
-        </View>
       </View>
     );
   }

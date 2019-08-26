@@ -1,5 +1,5 @@
 import React from "react";
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, View, Image } from "react-native";
 
 export default class HomePage extends React.Component {
   state = {
@@ -9,9 +9,8 @@ export default class HomePage extends React.Component {
     const { currentUser } = this.state;
     return (
       <View>
-        <Text style={styles.container}>
-          Welcome home {currentUser && currentUser.email}
-        </Text>
+        <Text>Welcome home</Text>
+        <Image source={require("./images/logo1.png")} />
       </View>
     );
   }
