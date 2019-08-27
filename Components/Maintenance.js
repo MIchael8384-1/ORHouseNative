@@ -1,19 +1,11 @@
 import React from "react";
 import { StyleSheet, Text, View, Image } from "react-native";
 
-export default class HomePage extends React.Component {
-  state = {
-    currentUser: null
-  };
+export default class Maintenance extends React.Component {
   render() {
-    const { currentUser } = this.state;
     return (
       <View>
-        <View>
-          <Text>Welcome home</Text>
-        </View>
-        <View />
-        <View />
+        <Text>Maintenace</Text>
       </View>
     );
   }
