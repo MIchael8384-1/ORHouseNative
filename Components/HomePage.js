@@ -1,30 +1,40 @@
 import React from "react";
-import { StyleSheet, Text, View, Image } from "react-native";
+import { StyleSheet, Text, View, Image, TouchableOpacity } from "react-native";
+import { Button, ThemeProvider, Header } from "react-native-elements";
+import ImageLogo from "./ImageLogo";
 
 export default class HomePage extends React.Component {
-  state = {
-    currentUser: null
-  };
   render() {
-    const { currentUser } = this.state;
     return (
-      <View>
-        <View>
-          <Text>Welcome home</Text>
-        </View>
-        <View />
-        <View />
+      <View style={styles.container}>
+        <Header
+          leftComponent={<ImageLogo />}
+          rightComponent={{
+            icon: "home",
+            color: "#4A306E",
+            onPress: () => this.props.navigation.navigate("HomePage")
+          }}
+          containerStyle={{
+            backgroundColor: "#fff",
+            justifyContent: "space-around"
+          }}
+        />
+
+        <View></View>
       </View>
     );
   }
 }
-
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#fff",
+    backgroundColor: "#4A306E",
+    alignItems: "center"
+  },
+  logoContainer: {
     alignItems: "center",
     justifyContent: "center",
-    padding: 10
-  }
+    flex: 1
+  },
+  logo: { width: 450, height: 150 }
 });

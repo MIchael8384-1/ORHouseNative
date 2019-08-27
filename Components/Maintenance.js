@@ -1,22 +1,46 @@
 import React from "react";
-import { StyleSheet, Text, View, Image } from "react-native";
+import {
+  StyleSheet,
+  Text,
+  View,
+  Image,
+  TouchableOpacity,
+  Button
+} from "react-native";
+import { ThemeProvider, Header } from "react-native-elements";
+import ImageLogo from "./ImageLogo";
 
-export default class Maintenance extends React.Component {
+export default class HomePage extends React.Component {
   render() {
     return (
-      <View>
-        <Text>Maintenace</Text>
+      <View style={styles.container}>
+        <Header
+          leftComponent={<ImageLogo />}
+          rightComponent={{
+            icon: "home",
+            color: "#4A306E",
+            onPress: () => this.props.navigation.navigate("HomePage")
+          }}
+          containerStyle={{
+            backgroundColor: "#fff",
+            justifyContent: "space-around"
+          }}
+        />
+        <View></View>
       </View>
     );
   }
 }
-
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#fff",
+    backgroundColor: "#4A306E",
+    alignItems: "center"
+  },
+  logoContainer: {
     alignItems: "center",
     justifyContent: "center",
-    padding: 10
-  }
+    flex: 1
+  },
+  logo: { width: 450, height: 150 }
 });
