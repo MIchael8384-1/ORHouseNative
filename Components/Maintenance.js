@@ -85,9 +85,8 @@ export default class Maintenance extends React.Component {
           }}
         />
 
-        <View style={styles.container}>
-          <Text>Have an issue?</Text>
-          <Text>Please select the room.</Text>
+        <View style={styles.scrollList}>
+          <Text style={styles.header}>SELECT YOUR ROOM</Text>
 
           <FlatList
             ItemSeparatorComponent={() => <View style={styles.list} />}
@@ -119,25 +118,37 @@ export default class Maintenance extends React.Component {
 
 const styles = StyleSheet.create({
   container: {
+    flex: 1
+  },
+  scrollList: {
     flex: 1,
+    // paddingTop: 10,
 
-    alignItems: "center"
+    backgroundColor: "#4A306E"
   },
   image: {
     width: 50,
     height: 50,
     borderRadius: 25
   },
-  input: {
-    height: 40,
-    borderColor: "purple",
-    width: 200,
-    borderWidth: 1
-  },
+  // input: {
+  //   height: 40,
+  //   borderColor: "purple",
+  //   width: 200,
+  //   borderWidth: 1
+  // },
   list: {
     height: 1,
     width: "100%",
-    backgroundColor: "lightgray"
+    backgroundColor: "white"
   },
-  logo: { width: 450, height: 150 }
+  header: {
+    textAlign: "center",
+    marginBottom: 20,
+    fontSize: 20,
+    backgroundColor: "#ED3192",
+    color: "white",
+    paddingTop: 20,
+    paddingBottom: 20
+  }
 });
