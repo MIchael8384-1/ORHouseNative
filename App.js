@@ -10,6 +10,7 @@ import SignIn from "./Components/SignIn";
 import HomePage from "./Components/HomePage";
 import Maintenance from "./Components/Maintenance";
 import RoomIssue from "./Components/RoomIssue";
+import Chat from "./Components/Chat";
 
 import DrawerContent from "./Components/DrawerContent";
 import Hidden from "./Components/Hidden";
@@ -33,7 +34,22 @@ const AppNavigator = createDrawerNavigator(
       navigationOptions: {
         drawerLabel: <Hidden />
       }
+    },
+    Chat: {
+      screen: Chat
+    },
+    RoomIssue: {
+      screen: RoomIssue,
+      navigationOptions: {
+        drawerLabel: <Hidden />
+      }
+    },
+    Chat: {
+      screen: Chat
     }
+    // SignOut: {
+    //   screen: SignOut
+    // }
   },
   {
     initialRouteName: "Landing"
