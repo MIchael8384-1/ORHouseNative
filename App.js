@@ -23,10 +23,10 @@ const AppNavigator = createDrawerNavigator(
         drawerLabel: <Hidden />
       }
     },
-    Home: {
+    HOME: {
       screen: HomePage
     },
-    Maintenance: {
+    MAINTENANCE: {
       screen: Maintenance
     },
     SignIn: {
@@ -35,7 +35,7 @@ const AppNavigator = createDrawerNavigator(
         drawerLabel: <Hidden />
       }
     },
-    Chat: {
+    CHAT: {
       screen: Chat
     },
     RoomIssue: {
@@ -43,9 +43,6 @@ const AppNavigator = createDrawerNavigator(
       navigationOptions: {
         drawerLabel: <Hidden />
       }
-    },
-    Chat: {
-      screen: Chat
     }
     // SignOut: {
     //   screen: SignOut
@@ -78,14 +75,16 @@ export default AppContainer;
 // import HomePage from "./Components/HomePage";
 // import Maintenance from "./Components/Maintenance";
 // import RoomIssue from "./Components/RoomIssue";
+// import Chat from "./Components/Chat";
 
-// const AppNavigator = createDrawerNavigator(
+// const AppNavigator = createBottomTabNavigator(
 //   {
 //     Landing: { screen: LandingPage },
 //     SignIn: { screen: SignIn },
 //     Home: { screen: HomePage },
 //     Maintenance: { screen: Maintenance },
-//     RoomIssue: { screen: RoomIssue }
+//     RoomIssue: { screen: RoomIssue },
+//     CharacterData: { screen: Chat }
 //   },
 //   {
 //     initialRouteName: "Landing"
@@ -96,6 +95,6 @@ export default AppContainer;
 
 // export default AppContainer;
 
-// // tabBarOptions: {
-// //       visible: false
-// //     },
+// tabBarOptions: {
+//       visible: false
+//     },

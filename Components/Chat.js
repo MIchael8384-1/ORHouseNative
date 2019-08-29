@@ -12,7 +12,7 @@ export default class Chat extends React.Component {
           rightComponent={{
             icon: "home",
             color: "#4A306E",
-            onPress: () => this.props.navigation.navigate("HomePage")
+            onPress: () => this.props.navigation.navigate("HOME")
           }}
           containerStyle={{
             backgroundColor: "#fff",

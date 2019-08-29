@@ -39,7 +39,7 @@ export default class HomePage extends React.Component {
           rightComponent={{
             icon: "home",
             color: "#4A306E",
-            onPress: () => this.props.navigation.navigate("HomePage")
+            onPress: () => this.props.navigation.navigate("HOME")
           }}
           containerStyle={{
             backgroundColor: "#fff",
@@ -48,7 +48,15 @@ export default class HomePage extends React.Component {
         />
 
         <View style={styles.content}>
-          <Text style={styles.font}>{address}</Text>
+          <Text
+            style={{
+              paddingBottom: 40,
+              fontSize: 20,
+              color: "#fff"
+            }}
+          >
+            {address}
+          </Text>
           <Text style={styles.font}>Rent Due</Text>
           <ProgressCircle
             style={styles.graph}
@@ -61,22 +69,43 @@ export default class HomePage extends React.Component {
           >
             <Text style={styles.font}>{daysRemaining} days</Text>
           </ProgressCircle>
-          <Text style={styles.font}>{fullName}</Text>
+          <Text
+            style={{
+              marginTop: 30,
+              fontSize: 20,
+              color: "#fff"
+            }}
+          >
+            {fullName}
+          </Text>
           <Text style={styles.font}>Rent: £{rent}</Text>
           <Text style={styles.font}>Tenancy Expires: {tenancyExpires}</Text>
-          <Button
-            title="Maintenance"
-            onPress={() => this.props.navigation.navigate("Maintenance")}
-          />
-          <Button
+
+          <TouchableOpacity
+            style={styles.SubmitButtonStyle}
+            activeOpacity={0.5}
+            // title="Maintenance"
+            onPress={() => this.props.navigation.navigate("MAINTENANCE")}
+          >
+            <Text style={styles.TextStyle}>MAINTENANCE</Text>
+          </TouchableOpacity>
+          <TouchableOpacity
+            style={styles.SubmitButtonStyle}
+            activeOpacity={0.5}
             title="Chat"
-            onPress={() => this.props.navigation.navigate("Chat")}
-          />
+            onPress={() => this.props.navigation.navigate("CHAT")}
+          >
+            <Text style={styles.TextStyle}>CHAT</Text>
+          </TouchableOpacity>
         </View>
       </View>
     );
   }
 }
+
+// toMaintenancePage = () => {
+//   this.props.navigation.navigate("Maintenance");
+// };
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -99,7 +128,21 @@ const styles = StyleSheet.create({
     fontSize: 20,
     color: "#fff"
   },
-  graph: {
-    paddingTop: 40
+
+  SubmitButtonStyle: {
+    marginTop: 20,
+    paddingTop: 15,
+    paddingBottom: 15,
+    marginLeft: 30,
+    marginRight: 30,
+    backgroundColor: "#ED3192",
+    borderRadius: 20,
+    width: 300
+  },
+
+  TextStyle: {
+    color: "#fff",
+    textAlign: "center",
+    fontSize: 20
   }
 });

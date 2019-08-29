@@ -1,5 +1,11 @@
 import React from "react";
-import { StyleSheet, Text, View, KeyboardAvoidingView } from "react-native";
+import {
+  StyleSheet,
+  Text,
+  View,
+  KeyboardAvoidingView,
+  Image
+} from "react-native";
 import * as firebase from "firebase";
 import fireConfig from "./fire";
 
@@ -13,6 +19,8 @@ import {
   Button,
   Label
 } from "native-base";
+
+// import { ScrollView } from "react-native-gesture-handler";
 
 firebase.initializeApp(fireConfig);
 
@@ -32,70 +40,70 @@ export default class SignIn extends React.Component {
     firebase
       .auth()
       .signInWithEmailAndPassword(email, password)
-      // .then(() => console.log("Please work"))
-      .then(() => this.props.navigation.navigate("HomePage"))
+      .then(() => this.props.navigation.navigate("HOME"))
       .catch(error => this.setState({ errorMessage: error.message }));
   };
 
   render() {
-    console.log(this.state.email);
     return (
+      // <ScrollView>
       <KeyboardAvoidingView behavior="padding" style={styles.container}>
         <Container style={styles.container}>
           <Form>
+            <Image
+              style={styles.logo}
+              source={require("./images/whiteLogo.png")}
+            />
             <Item floatingLabel>
-              <Label>Email</Label>
+              <Label style={{ color: "white" }}>Email</Label>
               <Input
                 autoCorrect={false}
                 autoCapitalize="none"
                 onChangeText={email => this.setState({ email })}
                 value={this.state.email}
+                style={styles.input}
               />
             </Item>
             <Item floatingLabel>
-              <Label>UserName</Label>
+              <Label style={{ color: "white" }}>Username</Label>
               <Input
                 autoCorrect={false}
                 autoCapitalize="none"
                 onChangeText={userName => this.setState({ userName })}
                 value={this.state.userName}
+                style={styles.input}
               />
             </Item>
             <Item floatingLabel>
-              <Label>Password</Label>
+              <Label style={{ color: "white" }}>Password</Label>
               <Input
                 secureTextEntry={true}
                 autoCorrect={false}
                 autoCapitalize="none"
                 onChangeText={password => this.setState({ password })}
                 value={this.state.password}
+                color="white"
+                style={styles.input}
               />
             </Item>
             <Button
               title="Login"
-              style={{ margin: 10 }}
+              style={{
+                margin: 10,
+                marginTop: 50,
+                backgroundColor: "#ED3192"
+              }}
               full
               rounded
               success
               onPress={this.handleLogin}
             >
-              <Text style={{ color: "white" }}>Login</Text>
-            </Button>
-
-            <Button
-              style={{ margin: 10 }}
-              full
-              rounded
-              primary
-              // onPress={() =>
-              //   this.signUpUser(this.state.email, this.state.password)
-              // }
-            >
-              <Text style={{ color: "white" }}>Sign Up</Text>
+              <Text style={{ color: "white", fontSize: 20 }}>Login</Text>
             </Button>
           </Form>
         </Container>
       </KeyboardAvoidingView>
+      // </ScrollView>
     );
   }
 }
@@ -103,9 +111,18 @@ export default class SignIn extends React.Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#fff",
+    backgroundColor: "#4A306E",
     // alignItems: "center",
     justifyContent: "center",
     padding: 10
+  },
+  logo: {
+    width: 300,
+    height: 150,
+    // alignItems: "center",
+    justifyContent: "center"
+  },
+  input: {
+    color: "#fff"
   }
 });
